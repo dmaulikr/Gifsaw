@@ -1,0 +1,27 @@
+PODS:
+  - Gifu (2.0.0-rc)
+  - Kingfisher (3.2.0)
+  - SAConfettiView (0.1.8)
+
+DEPENDENCIES:
+  - Gifu (from `https://github.com/kaishin/Gifu.git`)
+  - Kingfisher (~> 3.0)
+  - SAConfettiView
+
+EXTERNAL SOURCES:
+  Gifu:
+    :git: https://github.com/kaishin/Gifu.git
+
+CHECKOUT OPTIONS:
+  Gifu:
+    :commit: 5f1f686eaaea52fab57454c3605fa933b2c5e214
+    :git: https://github.com/kaishin/Gifu.git
+
+SPEC CHECKSUMS:
+  Gifu: ba59ea30a6bb0c3a258e80b6461db76ae301039f
+  Kingfisher: 50407d1d5dbc34965009d425a286342ff36a84ea
+  SAConfettiView: c87031a2280659261b730fce3669fb10e73636ee
+
+PODFILE CHECKSUM: 419d8040d662d1f1498a5798e5d68de1fd625b30
+
+COCOAPODS: 1.1.1
