@@ -33,9 +33,10 @@ class ViewController: UIViewController, PuzzleDelegate {
             puzzleViewController?.removeFromParentViewController()
         }
         
-        //TODO: fix this frame to be the resized rect
-        puzzleViewController = PuzzleViewController(frame: CGRect(x: 0, y: 0, width: puzzle.media.size.width, height: puzzle.media.size.height), puzzle: puzzle)
-        puzzleViewController?.view.center = view.center
+        let container = CGRect(x: 0, y: 0, width: view.frame.size.width, height: view.frame.size.height - 64) // We don't want active calls to change the size of the puzzle so we hardcode this value :~(
+        let size = AVMakeRect(aspectRatio: puzzle.media.size, insideRect: container)
+        puzzleViewController = PuzzleViewController(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), puzzle: puzzle)
+        puzzleViewController?.view.frame.origin = CGPoint.zero
         addChildViewController(puzzleViewController!)
         view.addSubview((puzzleViewController?.view)!)
         puzzleViewController?.didMove(toParentViewController: self)

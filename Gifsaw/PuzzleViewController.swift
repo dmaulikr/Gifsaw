@@ -82,7 +82,7 @@ extension PuzzleViewController {
         self.init()
         view.frame = frame
         self.puzzle = puzzle
-        let container = UIView(frame: CGRect(origin: CGPoint.zero, size: frame.size))
+        let container = UIView(frame: view.frame)
         view.addSubview(container)
         load(media: puzzle.media) { images in
             let images = self.process(images: images)

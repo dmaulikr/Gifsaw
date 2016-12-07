@@ -69,8 +69,8 @@ extension PreviewViewController {
         let playerView = UIView(frame: self.size)
         let gifView = UIImageView(frame: CGRect(x: 0, y: 0, width: playerView.frame.height, height: playerView.frame.width))
         gifView.transform = CGAffineTransform(rotationAngle: CGFloat(M_PI_2))
-        gifView.frame.origin = CGPoint(x: 0, y: 0)
         gifView.contentMode = .scaleAspectFit
+        gifView.frame.origin = CGPoint.zero
         gifView.kf.indicatorType = .activity
         gifView.kf.setImage(with: url, options: [.transition(.fade(0.1))]) { _ in
             self.difficulty = Difficulty.easy
