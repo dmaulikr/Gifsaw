@@ -39,6 +39,7 @@ class MediaViewController: UIViewController {
     }
 
     override func viewDidLoad() {
+        automaticallyAdjustsScrollViewInsets = false
         extendedLayoutIncludesOpaqueBars = true
         navigationItem.backBarButtonItem = UIBarButtonItem(title:"", style:.plain, target:nil, action:nil)
         view.backgroundColor = .black
