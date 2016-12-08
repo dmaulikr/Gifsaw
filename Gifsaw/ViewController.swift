@@ -37,6 +37,7 @@ class ViewController: UIViewController, PuzzleDelegate {
         let size = AVMakeRect(aspectRatio: puzzle.media.size, insideRect: container)
         puzzleViewController = PuzzleViewController(frame: CGRect(x: 0, y: 0, width: size.width, height: size.height), puzzle: puzzle)
         puzzleViewController?.view.frame.origin = CGPoint.zero
+        puzzleViewController?.view.center.x = view.center.x
         addChildViewController(puzzleViewController!)
         view.addSubview((puzzleViewController?.view)!)
         puzzleViewController?.didMove(toParentViewController: self)
