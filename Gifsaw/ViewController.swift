@@ -44,7 +44,34 @@ class ViewController: UIViewController, PuzzleDelegate {
     }
 
     func searchButtonPressed() {
-        let categoryViewController = CategoryViewController()
-        navigationController?.pushViewController(categoryViewController, animated: true)
+        let searchViewController = CollectionViewController(resource: Category.all, columns: 2, configure: { (cell: CategoryCell, category) in
+            cell.label.text = category.name
+            cell.imageView.kf.indicatorType = .activity
+            cell.imageView.kf.setImage(with: URL(string: category.jpg), options: [.transition(.fade(0.1))])
+        })
+        searchViewController.title = "Search"
+        searchViewController.didSelect = { category in
+            let resource = Resource<[MediaItem]>(url: URL(string:"https://api.popkey.co/v2/categories/\(category.id)/media")!, parseJSON: { data in
+                guard let json = data as? [JSONDictionary] else { return nil }
+                return json.flatMap(MediaItem.init)
+            })
+
+            let mediaViewController = CollectionViewController(resource: resource, columns: 3, configure: { (cell: MediaCell, media) in
+                cell.imageView.kf.indicatorType = .activity
+                cell.imageView.kf.setImage(with: URL(string: media.jpg), options: [.transition(.fade(0.1))])
+            })
+            mediaViewController.title = category.name
+            mediaViewController.didSelect = { media in
+                let previewViewController = PreviewViewController(media: media)
+                previewViewController.delegate = self
+                self.navigationController?.pushViewController(previewViewController, animated: true)
+            }
+            
+            self.navigationController?.pushViewController(mediaViewController, animated: true)
+        }
+        
+        navigationController?.pushViewController(searchViewController, animated: true)
+//        let categoryViewController = CategoryViewController()
+//        navigationController?.pushViewController(categoryViewController, animated: true)
     }
 }
