@@ -71,7 +71,5 @@ class ViewController: UIViewController, PuzzleDelegate {
         }
         
         navigationController?.pushViewController(searchViewController, animated: true)
-//        let categoryViewController = CategoryViewController()
-//        navigationController?.pushViewController(categoryViewController, animated: true)
     }
 }
