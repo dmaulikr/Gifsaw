@@ -75,6 +75,7 @@ extension PreviewViewController {
         gifView.kf.setImage(with: url, options: [.transition(.fade(0.1))]) { _ in
             self.difficulty = Difficulty.easy
             self.grid = GridView(frame: CGRect(x: self.offset, y: 0, width: self.size.width, height: self.size.height), difficulty: self.difficulty)
+            self.grid?.layer.zPosition = 5.0
             self.view.addSubview(self.grid!)
     
             self.addSegmentedControl()

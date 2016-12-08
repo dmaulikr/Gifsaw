@@ -25,8 +25,8 @@ class GridView: UIView {
     
     override func draw(_ rect: CGRect) {
         let context = UIGraphicsGetCurrentContext()
-        context?.setLineWidth(1)
-        context?.setStrokeColor(UIColor.black.cgColor)
+        context?.setLineWidth(2)
+        context?.setStrokeColor(UIColor.groupTableViewBackground.cgColor)
         
         let width = CGFloat(frame.size.width / CGFloat(difficulty.0))
         let height = CGFloat(frame.size.height / CGFloat(difficulty.1))
